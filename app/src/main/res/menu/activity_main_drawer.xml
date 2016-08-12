@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/home"
+                android:icon="@drawable/home"
+                android:title="Home"/>
+        <item
+                android:id="@+id/math"
+                android:icon="@drawable/abacus"
+                android:title="Maths"/>
+        <item
+                android:id="@+id/phy"
+                android:icon="@drawable/phy"
+                android:title="Physics"/>
+        <item
+                android:id="@+id/chem"
+                android:icon="@drawable/chem"
+                android:title="Chemistry"/>
+        <item
+                android:id="@+id/csc"
+                android:icon="@drawable/csc"
+                android:title="Computer Science"/>
+        <item
+                android:id="@+id/eg"
+                android:icon="@drawable/eg"
+                android:title="Engineering Graphics"/>
+        <item
+                android:id="@+id/Eco"
+                android:icon="@drawable/eco"
+                android:title="Economics"/>
+
+    </group>
+    <item android:title="LABS">
+    <menu>
+        <group android:checkableBehavior="single">
+    <item
+            android:id="@+id/phylab"
+            android:icon="@drawable/phy"
+            android:title="Physics LAB"/>
+        <item
+                android:id="@+id/chemlab"
+                android:icon="@drawable/chem"
+                android:title="Chemistry LAB"/>
+        <item
+                android:id="@+id/engglab"
+                android:icon="@drawable/eg"
+                android:title="Engineering LAB"/>
+    </group>
+    </menu>
+    </item>
+    <item android:title="Communicate">
+        <menu>
+            <item
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="Share"/>
+            <item
+                    android:id="@+id/nav_send"
+                    android:icon="@drawable/info"
+                    android:title="about"/>
+        </menu>
+    </item>
+
+</menu>
