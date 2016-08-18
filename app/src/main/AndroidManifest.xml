@@ -1,28 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.waseem.csecrockzz" >
+          package="com.waseem.csecrockzz">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        
-        <activity
-            android:name=".MainActivity"
+            android:allowBackup="true"
+            android:icon="@drawable/ic_launcher"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
 
-                <category android:name="android.intent.category.LAUNCHER" />
+        <activity
+                android:name=".MainActivity"
+                android:label="@string/app_name"
+                android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-            android:name=".TimeTableActivity"
-            android:label="@string/title_activity_time_table"
-            android:theme="@style/AppTheme.NoActionBar" >
+                android:name=".TimeTableActivity"
+                android:label="@string/title_activity_time_table"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <service
+                android:name=".MyService"
+                android:enabled="true"
+                android:exported="true">
+        </service>
+        <service
+                android:name=".NotificationService"
+                android:enabled="true"
+                android:exported="true">
+        </service>
+        <service
+                android:name=".NotificationUpdater"
+                android:enabled="true"
+                android:exported="true">
+        </service>
+
+        <activity
+                android:name=".MathsActivity"
+                android:label="@string/title_activity_maths"
+                android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

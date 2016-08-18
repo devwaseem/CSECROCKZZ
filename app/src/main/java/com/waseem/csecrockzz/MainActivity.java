@@ -1,5 +1,6 @@
 package com.waseem.csecrockzz;
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -27,7 +28,8 @@ public class MainActivity extends AppCompatActivity
     Calendar calendar;
     int day,hour,min;
     String stat;
-
+    Intent alarmIntent,vibrIntent;
+    PendingIntent pintent,vibintent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +38,13 @@ public class MainActivity extends AppCompatActivity
         periodinit();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        startat5();
         calendar=Calendar.getInstance();
 
         day=calendar.get(Calendar.DAY_OF_WEEK);
         getTable(day);
         getStatus();
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -89,11 +92,14 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.math) {
-            // Handle the camera action
+
+            Intent mintent=new Intent(getApplicationContext(),MathsActivity.class);
+            startActivity(mintent);
         } else if (id == R.id.phy) {
 
         } else if (id == R.id.chem) {
@@ -235,42 +241,43 @@ public class MainActivity extends AppCompatActivity
                 prev.setText("");
                 curr.setText(p1.getText());
                 next.setText(p2.getText());
-            }else if(time >=951 && time <=1040){//2 period
+            }else if(time >=950 && time <1040){//2 period
                 prev.setText(p1.getText());
                 curr.setText(p2.getText());
                 next.setText(p3.getText());
             }
-             if(time >=1041 && time <=1130){
+             if(time >=1040 && time <1130){
                 Log.v("now", "Period2");
                 prev.setText(p2.getText());
                 curr.setText(p3.getText());
                 next.setText(p4.getText());
             }
-            if(time >=1131 && time <=1220){
+            if(time >=1130 && time <1220){
                 prev.setText(p3.getText());
                 Log.v("now", "Period3");
                 curr.setText(p4.getText());
                 next.setText("LUNCH");
-            }if(time >=1221 && time <=1320){
+            }if(time >=1220 && time <1320){
                 prev.setText(p4.getText());
                 curr.setText("LUNCH");
                 next.setText(p5.getText());
-            }if(time >=1321 && time <=1410){
+            }if(time >=1320 && time <1410){
                 prev.setText("LUNCH");
+
                 curr.setText(p5.getText());
                 next.setText(p6.getText());
             }
-             if(time >=1411 && time <=1501) {
+             if(time >=1410 && time <1500) {
                 prev.setText(p5.getText());
                 curr.setText(p6.getText());
                 next.setText(p7.getText());
             }
-             else if(time >=1502 && time <=1550){
+             else if(time >=1500 && time <1550){
                 prev.setText(p6.getText());
                 curr.setText(p7.getText());
                 next.setText(p8.getText());
             }
-             else if(time >=1552 && time <=1640){
+             else if(time >=1550 && time <=1640){
                  prev.setText(p7.getText());
                  curr.setText(p8.getText());
                  next.setText("HOME");
@@ -295,11 +302,32 @@ public class MainActivity extends AppCompatActivity
         prev=(TextView)findViewById(R.id.prev);
         next=(TextView)findViewById(R.id.next);
     }
+
     public void show(View view){
 
         Intent intent=new Intent(this,TimeTableActivity.class);
         startActivity(intent);
     }
 
+    public void startat5(){
+
+            AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            int interval = 1000 * 60 * 50;
+            alarmIntent = new Intent(MainActivity.this, NotificationService.class);
+
+            pintent = PendingIntent.getService(this, 0, alarmIntent, 0);
+
+            startService(alarmIntent);
+
+            Calendar ncalendar = Calendar.getInstance();
+
+            ncalendar.set(Calendar.HOUR_OF_DAY, 6);
+            ncalendar.set(Calendar.MINUTE, 0);
+
+            manager.setRepeating(AlarmManager.RTC_WAKEUP, ncalendar.getTimeInMillis(),
+                    AlarmManager.INTERVAL_DAY, pintent);
+
+
+    }
 }
 
