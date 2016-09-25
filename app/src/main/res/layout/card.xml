@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+    <android.support.v7.widget.CardView
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cv"
+
+    >
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+        >
+
+
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/subject"
+                    android:text="Maths"
+                    android:layout_alignParentTop="true"
+                    android:textSize="30sp"
+            />
+
+            <TextView
+                    android:text="Total Classes: 60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tc"
+
+                    android:layout_below="@+id/subject"
+            />
+            <TextView
+                    android:text="Number Of Classes Bunked: 2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Nb"
+
+                    android:layout_below="@+id/tc"
+            />
+            <TextView
+                    android:text="Safe Bunks Available: 15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sb"
+
+                    android:layout_below="@+id/Nb"
+            />
+            <TextView
+                    android:text="Marks Obtained: 5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mo"
+
+                    android:layout_below="@+id/sb"
+            />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="98%"
+                    android:textSize="40dp"
+                    android:id="@+id/intperc"
+                    android:layout_marginRight="28dp"
+                    android:layout_marginEnd="28dp" android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:id="@+id/bminus"
+                    android:visibility="gone"
+                    android:layout_below="@+id/intperc" android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"/>
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:visibility="gone"
+                    android:id="@+id/bplus"
+                    android:layout_below="@+id/intperc" android:layout_alignLeft="@+id/intperc"
+                    android:layout_alignStart="@+id/intperc"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

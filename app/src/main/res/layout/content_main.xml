@@ -12,19 +12,21 @@
     android:layout_height="match_parent"
 >
 <android.support.v7.widget.CardView
-android:layout_marginTop="55dp"
+android:layout_marginTop="40dp"
         android:gravity="center"
         android:id="@+id/card1"
-        card_view:cardCornerRadius="6dp"
+        card_view:cardBackgroundColor="#004D40"
+
         card_view:cardElevation="4dp"
          android:layout_width="match_parent"
-        card_view:cardUseCompatPadding="true"
+
         android:layout_height="wrap_content">
 
-    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
                     android:id="@+id/relativeLayout"
                     android:layout_marginBottom="20dp"
                     android:padding="20dp"
+                    android:background="#004D40"
                     android:layout_above="@+id/relativeLayout2" android:layout_alignRight="@+id/relativeLayout3"
                     android:layout_alignEnd="@+id/relativeLayout3">
     <TextView
@@ -32,6 +34,7 @@ android:layout_marginTop="55dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Previous Period:"
+            android:textColor="#FFFFFF"
             android:id="@+id/textView2" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" android:layout_marginBottom="16dp" android:layout_marginTop="16dp"
     />
@@ -40,12 +43,14 @@ android:layout_marginTop="55dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Current Period:"
+            android:textColor="#FFFFFF"
             android:id="@+id/textView3"
             android:layout_below="@+id/textView2" android:layout_toLeftOf="@+id/prev"
             android:layout_toStartOf="@+id/prev" android:layout_marginBottom="16dp"/>
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:textAppearance="?android:attr/textAppearanceMedium" android:text="Next Period:"
               android:id="@+id/textView4"
+              android:textColor="#FFFFFF"
               android:layout_below="@+id/textView3" android:layout_alignRight="@+id/textView3"
               android:layout_alignEnd="@+id/textView3"/>
     <TextView
@@ -54,6 +59,7 @@ android:layout_marginTop="55dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="PHYSICS"
             android:id="@+id/prev"
+            android:textColor="#FFFFFF"
             android:layout_alignBottom="@+id/textView2" android:layout_toRightOf="@+id/textView2"
             android:layout_toEndOf="@+id/textView2" android:layout_marginLeft="16dp"/>
     <TextView
@@ -62,6 +68,7 @@ android:layout_marginTop="55dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="MATHS"
             android:id="@+id/curr"
+            android:textColor="#FFFFFF"
             android:layout_alignBottom="@+id/textView3" android:layout_alignLeft="@+id/prev"
             android:layout_alignStart="@+id/prev"/>
     <TextView
@@ -69,6 +76,7 @@ android:layout_marginTop="55dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="CHEMISTRY"
+            android:textColor="#FFFFFF"
             android:id="@+id/next"
             android:layout_alignBottom="@+id/textView4" android:layout_alignLeft="@+id/curr"
             android:layout_alignStart="@+id/curr"/>
@@ -266,14 +274,13 @@ android:layout_marginTop="55dp"
     </android.support.v7.widget.CardView>
     <android.support.v7.widget.CardView
             android:layout_below="@id/card2"
-
             android:id="@+id/card3"
             card_view:cardCornerRadius="6dp"
             card_view:cardElevation="4dp"
             android:layout_width="match_parent"
             card_view:cardUseCompatPadding="true"
             android:layout_height="wrap_content">
-    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true" android:layout_gravity="center"
                     android:id="@+id/relativeLayout3">
     <Button
@@ -284,38 +291,31 @@ android:layout_marginTop="55dp"
             android:onClick="show"
             android:gravity="center"
             android:layout_marginTop="16dp"
-            android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"/>
-    <Switch
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vibration"
-            android:gravity="center"
-            android:id="@+id/switch1"
-            android:layout_marginTop="16dp"
-            android:checked="true"
-            android:layout_below="@+id/show" android:layout_centerHorizontal="true"
-            android:layout_marginBottom="16dp"/>
-    <Switch
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Notification"
-            android:id="@+id/switch2"
-            android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:checked="true" android:layout_below="@+id/switch1"
-            android:layout_alignEnd="@+id/switch1"
-            android:layout_alignRight="@+id/switch1" android:layout_marginBottom="16dp"/>
-    <Switch
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Silence on Class"
-            android:id="@+id/switch3"
+            android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="This Period Will End In..."
+                  android:textSize="20dp"
+        android:layout_below="@id/show"
+        android:layout_margin="16dp"
+        android:textStyle="bold"
 
-            android:gravity="center"
-            android:checked="true" android:layout_below="@+id/switch2" android:layout_alignRight="@+id/switch2"
-            android:layout_centerHorizontal="true" android:layout_marginBottom="16dp"/>
-</RelativeLayout>
+                  android:id="@+id/title"
+        android:gravity="right"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:text="35"
+                  android:textSize="40sp"
+                  android:id="@+id/rtime"
+                  android:textAppearance="?android:attr/textAppearanceLarge"
+                  android:textStyle="bold"
+                  android:layout_below="@+id/title" android:layout_centerHorizontal="true"
+        />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:text="Minutes..."
+
+                  android:textStyle="bold"
+                  android:layout_alignBaseline="@+id/rtime" android:layout_alignBottom="@+id/rtime"
+                  android:layout_alignRight="@+id/show" android:layout_alignEnd="@+id/show"/>
+    </RelativeLayout>
     </android.support.v7.widget.CardView>
 </RelativeLayout>
 </ScrollView>

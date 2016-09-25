@@ -1,55 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group >
         <item
                 android:id="@+id/home"
                 android:icon="@drawable/home"
                 android:title="Home"/>
         <item
-                android:id="@+id/math"
-                android:icon="@drawable/abacus"
-                android:title="Maths"/>
+                android:id="@+id/forum"
+                android:icon="@drawable/forum"
+                android:title="Forum"/>
         <item
-                android:id="@+id/phy"
-                android:icon="@drawable/phy"
-                android:title="Physics"/>
+                android:id="@+id/bmanager"
+                android:icon="@drawable/bmanager"
+                android:title="Bunk Manager"/>
         <item
-                android:id="@+id/chem"
-                android:icon="@drawable/chem"
-                android:title="Chemistry"/>
+                android:id="@+id/asleep"
+                android:icon="@drawable/asleep"
+                android:title="Anti Sleep"/>
         <item
-                android:id="@+id/csc"
-                android:icon="@drawable/csc"
-                android:title="Computer Science"/>
+                android:id="@+id/croom"
+                android:icon="@drawable/croom"
+                android:title="Chat Room"/>
         <item
-                android:id="@+id/eg"
-                android:icon="@drawable/eg"
-                android:title="Engineering Graphics"/>
-        <item
-                android:id="@+id/Eco"
-                android:icon="@drawable/eco"
-                android:title="Economics"/>
+                android:id="@+id/tools"
+                android:icon="@drawable/tools"
+                android:title="Tools"/>
+    </group>
 
-    </group>
-    <item android:title="LABS">
-    <menu>
-        <group android:checkableBehavior="single">
-    <item
-            android:id="@+id/phylab"
-            android:icon="@drawable/phy"
-            android:title="Physics LAB"/>
-        <item
-                android:id="@+id/chemlab"
-                android:icon="@drawable/chem"
-                android:title="Chemistry LAB"/>
-        <item
-                android:id="@+id/engglab"
-                android:icon="@drawable/eg"
-                android:title="Engineering LAB"/>
-    </group>
-    </menu>
-    </item>
     <item android:title="Communicate">
         <menu>
             <item
@@ -57,7 +35,7 @@
                     android:icon="@drawable/ic_menu_share"
                     android:title="Share"/>
             <item
-                    android:id="@+id/nav_send"
+                    android:id="@+id/about"
                     android:icon="@drawable/info"
                     android:title="about"/>
         </menu>

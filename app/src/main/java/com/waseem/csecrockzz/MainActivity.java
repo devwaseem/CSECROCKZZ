@@ -24,7 +24,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    TextView p1,p2,p3,p4,p5,p6,p7,p8,curr,prev,next;
+    TextView p1,p2,p3,p4,p5,p6,p7,p8,curr,prev,next,rt;
     Calendar calendar;
     int day,hour,min;
     String stat;
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity
         day=calendar.get(Calendar.DAY_OF_WEEK);
         getTable(day);
         getStatus();
+
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -96,19 +97,21 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.math) {
+        if (id == R.id.home) {
+        startActivity(new Intent(getApplicationContext(),MainActivity.class));
 
-            Intent mintent=new Intent(getApplicationContext(),MathsActivity.class);
-            startActivity(mintent);
-        } else if (id == R.id.phy) {
 
-        } else if (id == R.id.chem) {
+        } else if (id == R.id.forum) {
+            startActivity(new Intent(getApplicationContext(),ForumActivity.class));
+        } else if (id == R.id.asleep) {
 
-        } else if (id == R.id.csc) {
+        } else if (id == R.id.tools) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.bmanager) {
+            startActivity(new Intent(getApplicationContext(),BunkManager.class));
+        }else if (id == R.id.croom) {
+            startActivity(new Intent(getApplicationContext(),chatActivity.class));
+        }else if (id == R.id.about) {
 
         }
 
@@ -241,52 +244,62 @@ public class MainActivity extends AppCompatActivity
                 prev.setText("");
                 curr.setText(p1.getText());
                 next.setText(p2.getText());
+                rt.setText(getRemainingMins(min,50));
             }else if(time >=950 && time <1040){//2 period
                 prev.setText(p1.getText());
                 curr.setText(p2.getText());
                 next.setText(p3.getText());
+                rt.setText(getRemainingMins(min,40));
             }
              if(time >=1040 && time <1130){
                 Log.v("now", "Period2");
                 prev.setText(p2.getText());
                 curr.setText(p3.getText());
                 next.setText(p4.getText());
+                 rt.setText(getRemainingMins(min,30));
             }
             if(time >=1130 && time <1220){
                 prev.setText(p3.getText());
                 Log.v("now", "Period3");
                 curr.setText(p4.getText());
                 next.setText("LUNCH");
+                rt.setText(getRemainingMins(min,20));
             }if(time >=1220 && time <1320){
                 prev.setText(p4.getText());
                 curr.setText("LUNCH");
                 next.setText(p5.getText());
+                rt.setText(getRemainingMins(min,20));
             }if(time >=1320 && time <1410){
                 prev.setText("LUNCH");
 
                 curr.setText(p5.getText());
                 next.setText(p6.getText());
+                rt.setText(getRemainingMins(min,10));
             }
              if(time >=1410 && time <1500) {
                 prev.setText(p5.getText());
                 curr.setText(p6.getText());
                 next.setText(p7.getText());
-            }
+                 rt.setText(getRemainingMins(min,0));
+             }
              else if(time >=1500 && time <1550){
                 prev.setText(p6.getText());
                 curr.setText(p7.getText());
                 next.setText(p8.getText());
+                 rt.setText(getRemainingMins(min,50));
             }
              else if(time >=1550 && time <=1640){
                  prev.setText(p7.getText());
                  curr.setText(p8.getText());
                  next.setText("HOME");
+                 rt.setText(getRemainingMins(min,40));
              }
 
         }else{
             prev.setText("HOME");
             curr.setText("SWEET");
             next.setText("HOME");
+            rt.setText("No Time Its Home..!!!  :P ");
         }
     }
     public void periodinit(){
@@ -301,6 +314,7 @@ public class MainActivity extends AppCompatActivity
         curr=(TextView)findViewById(R.id.curr);
         prev=(TextView)findViewById(R.id.prev);
         next=(TextView)findViewById(R.id.next);
+        rt=(TextView)findViewById(R.id.rtime);
     }
 
     public void show(View view){
@@ -328,6 +342,15 @@ public class MainActivity extends AppCompatActivity
                     AlarmManager.INTERVAL_DAY, pintent);
 
 
+    }
+    public String getRemainingMins(int currMin,int endMin){
+    String result;
+        int remain =(60-currMin)+endMin;
+        if(remain>60){
+            remain-=60;
+        }
+        result=""+remain;
+        return result;
     }
 }
 
