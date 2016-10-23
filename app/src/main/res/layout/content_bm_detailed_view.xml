@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/activity_bm_detailed_view"
+        tools:context="com.waseem.csecrockzz.BmDetailedView">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Subject"
+            android:id="@+id/dtsub" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
+            android:layout_marginTop="39dp" android:textSize="40dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="100%"
+            android:id="@+id/dtperc"
+            android:layout_marginTop="39dp"
+            android:layout_below="@+id/dtsub" android:layout_centerHorizontal="true" android:textSize="28dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Bunked Classes :"
+            android:id="@+id/textView69" android:layout_below="@+id/dtperc"
+            android:layout_toLeftOf="@+id/dtperc" android:layout_toStartOf="@+id/dtperc"
+            android:layout_marginRight="18dp" android:layout_marginEnd="18dp" android:layout_marginTop="54dp"
+            android:textSize="16dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Bunks Availble :"
+            android:id="@+id/textView70"
+            android:textSize="16dp"
+            android:layout_below="@+id/textView69" android:layout_alignRight="@+id/textView69"
+            android:layout_alignEnd="@+id/textView69" android:layout_marginTop="16dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Bunk health :"
+            android:id="@+id/textView71"
+            android:textSize="16dp" android:layout_below="@+id/textView70" android:layout_alignRight="@+id/textView70"
+            android:layout_alignEnd="@+id/textView70" android:layout_marginTop="16dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="4"
+            android:id="@+id/dtbc" android:layout_alignBottom="@+id/textView69"
+            android:layout_toRightOf="@+id/textView70" android:layout_toEndOf="@+id/textView70"
+            android:layout_marginLeft="16dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="12"
+            android:id="@+id/dtba" android:layout_alignTop="@+id/textView70"
+            android:layout_toRightOf="@+id/textView70" android:layout_toEndOf="@+id/textView70"
+            android:layout_marginLeft="16dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Good"
+            android:id="@+id/textView74" android:layout_alignTop="@+id/textView71"
+            android:layout_toRightOf="@+id/textView71" android:layout_toEndOf="@+id/textView71"
+            android:layout_marginLeft="16dp"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:id="@+id/dtplus"
+            android:layout_marginTop="56dp"
+            android:layout_below="@+id/textView74" android:layout_toLeftOf="@+id/dtperc"
+            android:layout_toStartOf="@+id/dtperc" android:textSize="20dp" android:background="#c80808"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/dtminus"
+            android:layout_alignTop="@+id/dtplus" android:layout_toRightOf="@+id/textView74"
+            android:layout_toEndOf="@+id/textView74" android:background="#2eac00" android:textSize="16dp"/>
+</RelativeLayout>

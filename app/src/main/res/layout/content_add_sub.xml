@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/activity_add_sub"
+        tools:context="com.waseem.csecrockzz.addSubActivity">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Bunk Manager"
+            android:id="@+id/textView63"
+            android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:textSize="32dp"/>
+    <android.support.v7.widget.CardView android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" android:layout_below="@+id/textView63"
+                                        android:layout_alignParentLeft="true" android:layout_alignParentStart="true">
+
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView63" android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" android:layout_marginTop="26dp"
+    android:layout_margin="8dp">
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subject : "
+        android:id="@+id/textView64"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true" android:layout_alignRight="@+id/textView65"
+        android:layout_alignEnd="@+id/textView65"/>
+<EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/subedit" android:layout_alignBottom="@+id/textView64"
+        android:layout_toRightOf="@+id/textView64"
+        android:hint="maths" android:inputType="text"/>
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Classes : "
+        android:id="@+id/textView65"
+        android:layout_marginTop="25dp" android:textSize="20dp" android:layout_below="@+id/textView64"
+        android:layout_toLeftOf="@+id/cbedit" android:layout_toStartOf="@+id/cbedit"/>
+<EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tcedit"
+        android:layout_alignBottom="@+id/textView65" android:layout_toRightOf="@+id/textView65"
+        android:layout_toEndOf="@+id/textView65" android:hint="60" android:inputType="number"/>
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Classes Bunked : "
+        android:id="@+id/textView66" android:layout_below="@+id/textView65" android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" android:layout_marginTop="27dp" android:textSize="20dp"/>
+<EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cbedit"
+        android:layout_alignBottom="@+id/textView66" android:layout_toRightOf="@+id/textView66"
+        android:layout_toEndOf="@+id/textView66" android:hint="5" android:inputType="number"/>
+<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/b_save" android:layout_below="@+id/textView66" android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp" android:background="@color/colorPrimary" android:textColor="#ffffff"/>
+    </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity
     String stat;
     Intent alarmIntent,vibrIntent;
     PendingIntent pintent,vibintent;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +42,13 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         startat5();
         calendar=Calendar.getInstance();
-
+        sp=getPreferences(Context.MODE_PRIVATE );
         day=calendar.get(Calendar.DAY_OF_WEEK);
         getTable(day);
         getStatus();
-
+        SharedPreferences.Editor editor=sp.edit();
+        editor.putInt("nos_subject",0);
+        editor.commit();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

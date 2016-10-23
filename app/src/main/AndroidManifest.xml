@@ -50,11 +50,19 @@
                 android:label="@string/title_activity_chat"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
-
         <activity
                 android:name=".BunkManager"
                 android:label="Bunk Manager"
-
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+                android:name=".addSubActivity"
+                android:label="@string/title_activity_add_sub"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+                android:name=".BmDetailedView"
+                android:label="@string/title_activity_bm_detailed_view"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

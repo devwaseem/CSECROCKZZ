@@ -1,24 +1,33 @@
 package com.waseem.csecrockzz;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 /**
  * Created by Waseem on 9/11/2016.
  */
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 private ArrayList<bunkData> mDataset;
     public TextView subject,tc,bc,sb,marks,perc;
     public Button plus,minus;
-
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    SharedPreferences sp;
+    SharedPreferences.Editor edit;
+    Context context;
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public ViewHolder(View v){
         super(v);
@@ -30,9 +39,15 @@ private ArrayList<bunkData> mDataset;
             perc=(TextView)v.findViewById(R.id.intperc);
             plus=(Button)v.findViewById(R.id.bplus);
             minus=(Button)v.findViewById(R.id.bminus);
+            context=v.getContext();
+
 
         }
 
+        @Override
+        public void onClick(View view) {
+            Log.d("holder","onclick"+getPosition());
+        }
     }
     public void add(int position,String item){
        // mDataset.add(position,item);
@@ -46,6 +61,7 @@ private ArrayList<bunkData> mDataset;
 
     public MyAdapter(ArrayList<bunkData> myDataset){
         mDataset=myDataset;
+
     }
 
 
@@ -53,38 +69,42 @@ private ArrayList<bunkData> mDataset;
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.card,parent,false);
         ViewHolder vh= new ViewHolder(v);
-        perc.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
 
-                plus.setVisibility(View.VISIBLE);
-                minus.setVisibility(View.VISIBLE);
-
-
-                notifyDataSetChanged();
-                return true;
-            }
-        });
         return vh;
     }
 
     @Override
     public void onBindViewHolder(MyAdapter.ViewHolder holder, final int position) {
-    subject.setText(mDataset.get(position).getSubject().toString());
-        tc.setText(mDataset.get(position).getTotClasses().toString());
-        bc.setText(mDataset.get(position).getBunked().toString());
-        sb.setText(mDataset.get(position).getSafeBunks().toString());
-        marks.setText(mDataset.get(position).getMarks().toString());
-        perc.setText(mDataset.get(position).getPerc().toString());
-        plus.setOnClickListener(new View.OnClickListener() {
+
+
+
+    subject.setText(mDataset.get(position).getSubject());
+        tc.setText(mDataset.get(position).getTotClasses());
+        bc.setText(mDataset.get(position).getBunked());
+        sb.setText(mDataset.get(position).getSafeBunks());
+        marks.setText(mDataset.get(position).getMarks())
+        ;
+        perc.setText(mDataset.get(position).getPerc());
+
+
+        perc.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View view) {
+            public boolean onLongClick(View view) {
+                BunkManager bm=new BunkManager();
+                bm.putPrefs(
+                        mDataset.get(position).getSubject(),
+                        mDataset.get(position).getPerc().toString(),
+                        mDataset.get(position).getBunked(),
+                        mDataset.get(position).getSafeBunks()
+                );
+                Toast.makeText(context,"its"+mDataset.get(position).getSubject()+"",Toast.LENGTH_SHORT);
 
-                (mDataset.get(position).bunked)++;
+                Log.d("BM", "onLongClick: "+"its"+mDataset.get(position).getSubject()+"");
+                context.startActivity(new Intent(context,BmDetailedView.class));
 
+                return true;
             }
         });
-
 
     }
 
@@ -92,5 +112,7 @@ private ArrayList<bunkData> mDataset;
     public int getItemCount() {
         return mDataset.size();
     }
+
+
 
 }
